@@ -59,7 +59,7 @@
                                 <span style="text-align: right;">
                                     <a mat-raised-button color="accent" rel="noopener"
                                             target="_blank" alt="SignalKSimulator - Chrome Application"
-                                            href="https://chrome.google.com/webstore/detail/nmea-simulator/dfhcgoinjchfcfnnkecjpjcnknlipcll?utm_source=chrome-ntp-icon">
+                                            href="https://github.com/panaaj/nmeasimulator/releases/latest">
                                         <img src="./assets/img/apps/nmeasim.png" style="width:20px;"/>&nbsp;
                                         Get it now
                                     </a>
@@ -67,16 +67,36 @@
                             </div>
                         </mat-card-title>       
 
-                        <img border=0 width=250 src="./assets/img/apps/nmeasim-chrome.png" alt="NMEASimulator Chrome Edition is a FREE utility for generating 
-                            NMEA data streams to connected devices"/>
-                            <br>&nbsp;<br>
-                        <b>NMEASimulator</b>
+                        <img border=0 width=100% src="https://user-images.githubusercontent.com/38519157/75314330-55c95380-58af-11ea-887c-392dcccbea3a.png" 
+                            alt="NMEASimulator is a FREE NMEA senetence generator"/>
+                        <br>&nbsp;<br>
                         
-                        <p>NMEASimulator is a FREE Chrome Application for Google Chrome / ChromeOS for generating NMEA data streams to devices connected
-                        via TCP/IP, WebSocket or Serial port.</p>
+                        <p>
+                            NMEASimulator is a FREE utilitiy for generating NMEA data streams to devices connected
+                            via TCP/IP, WebSocket or Serial port.
+                        </p>
 
-                        <b>NMEASimulator is simple and easy to use generating NMEA sentences simulating the following:</b>
-                        <ul class="circle">
+                        <p style="font-weight: 500;font-style:italic;">
+                            NMEASimulator is available for Windows, Mac & Linux platforms and is a driect replacement 
+                            for the NMEASimulator Chrome App (for which support ends as of June 2020 for these platforms).
+                        </p>                        
+
+                        <p>It is simple and easy to use tool that mimics vessel 
+                            movement, engine status, water depth, etc.:
+                        </p>
+                        <p>
+                            <b>It can work in two modes:</b>
+                        </p>
+                        <ol>
+                            <li>Set initial seed values and then perodically apply a delta to them to mimic vessel movement</li>
+                            <br>
+                            <li>Follow a GPX Track. NMEASimulator will walk through each point of the Track at the interval 
+                                set in the configuration screen.<br>
+                                <i>Note: If a track has multiple segments, NMEASimulator will concatenate all the segments into one contiguous Track</i>
+                            </li> 
+                        </ol>                                               
+                        
+                        <ul class="circle">                                    
                             <li>
                                 GPS Fix Quality,HDOP, PDOP & VDOP, Number of satellites,
                                 Current local time and date.
