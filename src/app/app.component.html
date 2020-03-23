@@ -1,0 +1,109 @@
+<div class="appframe">
+	<!-- Top Bar -->
+	<mat-toolbar color="">
+		<mat-toolbar-row>
+			<span>
+				<!-- menu opens when trigger button is clicked -->
+				<!--<button mat-icon-button (click)="sidemenu.toggle()">
+					<mat-icon>menu</mat-icon>
+				</button>-->
+			</span>		
+			<span style=" flex: 1 1 auto;">NMEASimulator&nbsp;
+                <span class="tagline">- NMEA Sentece generator</span>
+            </span>
+			<span>
+				<!-- menu opens when trigger button is clicked -->
+				<!--<button mat-icon-button [mat-menu-trigger-for]="infomenu" (click)="sidemenu.close()">
+					<mat-icon>info_outline</mat-icon>
+				</button>	-->		
+			</span>
+		</mat-toolbar-row>
+	</mat-toolbar>
+
+	<mat-menu #infomenu="matMenu" matTooltip="Info Menu" matTooltipPosition="below">
+		<!--<button mat-menu-item (click)="openAbout()">
+			<mat-icon>info</mat-icon>
+			<span>About</span>			
+		</button>-->			
+	</mat-menu>			
+	<!-- /Top Bar -->
+	
+    <!-- Tab Bar -->
+	<!--<nav mat-tab-nav-bar>
+        <a mat-tab-link routerLink="/home" routerLinkActive="active" 
+                (click)="sidemenu.close()"><b><mat-icon>home</mat-icon></b>Home</a>
+    </nav> -->   
+    <!-- /Tab Bar -->		
+
+	<!-- content -->
+	<div class="view" theme-main>
+	
+		<mat-sidenav-container>
+			<mat-sidenav #sidemenu mode="push">
+				<mat-nav-list>
+                  
+				</mat-nav-list>
+
+			</mat-sidenav>
+
+			<div class="view-content" >
+
+				<!-- content -->
+				<div style="display: flex; flex-wrap: wrap;">
+    
+                    <!--nmeasim-->
+                    <mat-card>
+                        <mat-card-title >
+                            <div style="display: flex; flex-wrap: wrap;">
+                                <span style="flex: 1 1 auto;"><img src="./assets/img/apps/nmeasim_1.png"></span>
+                                <span style="text-align: right;">
+                                    <a mat-raised-button color="accent" rel="noopener"
+                                            target="_blank" alt="SignalKSimulator - Chrome Application"
+                                            href="https://chrome.google.com/webstore/detail/nmea-simulator/dfhcgoinjchfcfnnkecjpjcnknlipcll?utm_source=chrome-ntp-icon">
+                                        <img src="./assets/img/apps/nmeasim.png" style="width:20px;"/>&nbsp;
+                                        Get it now
+                                    </a>
+                                </span>
+                            </div>
+                        </mat-card-title>       
+
+                        <img border=0 width=250 src="./assets/img/apps/nmeasim-chrome.png" alt="NMEASimulator Chrome Edition is a FREE utility for generating 
+                            NMEA data streams to connected devices"/>
+                            <br>&nbsp;<br>
+                        <b>NMEASimulator</b>
+                        
+                        <p>NMEASimulator is a FREE Chrome Application for Google Chrome / ChromeOS for generating NMEA data streams to devices connected
+                        via TCP/IP, WebSocket or Serial port.</p>
+
+                        <b>NMEASimulator is simple and easy to use generating NMEA sentences simulating the following:</b>
+                        <ul class="circle">
+                            <li>
+                                GPS Fix Quality,HDOP, PDOP & VDOP, Number of satellites,
+                                Current local time and date.
+                            </li>
+                            <li>
+                                Vessel position, speed and heading data
+                            </li>
+                            <li>
+                                Wind speed and direction
+                            </li>
+                            <li>
+                                Water temperature and depth
+                            </li>
+                            <li>
+                                Waypoint position and name
+                            </li>									
+                        </ul>
+                    </mat-card>
+                
+                </div>
+                 <!-- content -->		                
+
+			</div>
+			
+		</mat-sidenav-container>
+	</div>
+	<!-- /content -->
+	
+</div>
+
