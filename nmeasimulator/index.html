@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>NMEASimulator | Panazzolo.com</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+        <link rel="stylesheet" href="../assets/css/main.css">
+
+        <link rel="apple-touch-icon" href="../assets/img/favicon-32x32.png" />
+        <meta name="description" content="Web Applications and Utilities">
+        <meta name="keywords" content="NMEA, NMEA 0183,GPS, Simulator, gps, nmea, signal k, free, web app, webapp">
+
+        <!-- analytics -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-97921082-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        <!-- /analytics -->  
+
+    </head>
+    <body>
+
+        <div style="display: flex; flex-wrap: wrap;">
+    
+            <!--nmeasim-->
+            <div>
+                <div>
+                    <div style="display: flex; flex-wrap: wrap;">
+                        <span style="flex: 1 1 auto;"><img src="../assets/img/apps/nmeasim_1.png"></span>
+                        <span style="text-align: right;">
+                            <a class="raised-button" rel="noopener"
+                                    target="_blank" alt="NMEASimulator"
+                                    href="https://github.com/panaaj/nmeasimulator/releases/latest">
+                                <img src="../assets/img/apps/nmeasim.png" style="width:20px;"/>&nbsp;
+                                Get it now
+                            </a>
+                        </span>
+                    </div>
+                </div>       
+                <div>
+                    <img width=100% src="https://user-images.githubusercontent.com/38519157/75314330-55c95380-58af-11ea-887c-392dcccbea3a.png" 
+                        alt="NMEASimulator is a FREE NMEA senetence generator"/>
+                    <br>&nbsp;<br>
+                    
+                    <p>
+                        NMEASimulator is a FREE utilitiy for generating NMEA data streams to devices connected
+                        via TCP/IP, WebSocket or Serial port.
+                    </p>
+        
+                    <p style="font-weight: 500;font-style:italic;">
+                        NMEASimulator is available for Windows, Mac, Linux &amp; Raspberry Pi platforms and is a direct replacement 
+                        for the NMEASimulator Chrome App (for which support ends as of June 2020 for these platforms).
+                    </p>                        
+        
+                    <p>It is a simple and easy to use tool that mimics vessel 
+                        movement, engine status, water depth, etc.<br>
+                        Just open NMEASimulator and click on 
+                        <i class="material-icons" style="color:blue;">play_arrow</i>.
+                    </p>
+                    <p>
+                        <b>It can work in the following modes:</b>
+                    </p>
+                    <ol>
+                        <li>
+                            Using initial seed values, perodically apply a delta to them to mimic vessel 
+                            movement. <br>
+                            Seed values and time interval can configured in 
+                            <i class="material-icons" style="color:blue;">settings</i> <b>Settings</b>.<br>
+                        </li>
+                        <br>
+                        <li>Follow a GPX Track. NMEASimulator will walk through each point of the Track at the interval 
+                            set in the configuration screen.<br>
+                            <i>Note: If a track has multiple segments, NMEASimulator will concatenate all the segments into one contiguous Track</i>
+                        </li>
+                        <li>
+                            Manual override allows you to take of control specific values with vessel heading and speed able to be 
+                            varied using the <i class="material-icons" style="color:blue;">keyboard_arrow_left</i>
+                            <i class="material-icons" style="color:blue;">keyboard_arrow_right</i>
+                            <i class="material-icons" style="color:blue;">keyboard_arrow_up</i>
+                            <i class="material-icons" style="color:blue;">keyboard_arrow_down</i> keys.<br>
+                            Additionally all values can be "frozen" at the current value to enable a static steam of data to be output.
+                        </li>
+                    </ol>                                               
+                    
+                    NMEA sentences containing the following information are generated:
+                    <ul class="circle">                                    
+                        <li>
+                            GPS Fix Quality,HDOP, PDOP & VDOP, Number of satellites,
+                            Current local time and date.
+                        </li>
+                        <li>
+                            Vessel position, speed and heading data
+                        </li>
+                        <li>
+                            Wind speed and direction
+                        </li>
+                        <li>
+                            Water temperature and depth
+                        </li>
+                        <li>
+                            Waypoint position and name
+                        </li>									
+                    </ul>
+                </div>
+                <div>
+                    <div style="display: flex; flex-wrap: wrap;">
+                        <span style="flex: 1 1 auto;"></span>
+                        <span style="text-align: right;">
+                            <a class="raised-button" rel="noopener" rel="noopener"
+                                    target="_blank" alt="NMEASimulator"
+                                    href="https://github.com/panaaj/nmeasimulator/releases/latest">
+                                <img src="../assets/img/apps/nmeasim.png" style="width:20px;"/>&nbsp;
+                                Get it now
+                            </a>
+                        </span>
+                    </div>                            
+                </div>
+
+            </div>
+        
+        </div>        
+        
+    </body>
+</html>
