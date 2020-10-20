@@ -1,0 +1,10 @@
+#teamlist
+2,Joe,Smith
+6,John,Brown
+10,Andrew,Jones
+12,Brett,South
+18,Sam,North
+20,James,Squid
+22,Michael,West
+29,Fred,Towns
+32,Barney,Stout

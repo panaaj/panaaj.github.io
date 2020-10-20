@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Keepscore | Panazzolo.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="KeepScore AFL Scorecard"/>
+    <meta name="keywords" content="afl football australian rules footy"/>  
+    <!-- ** Foundation ** -->
+    <link rel="stylesheet" href="./css/foundation.min.css" />
+	<link rel="stylesheet" href="./css/foundation-icons.css" />
+    <!--** Foundation ** -->
+    <link rel="stylesheet" href="./css/external.css">   
+
+    <script>
+        navigator.presentation.receiver.connectionList
+        .then(list => {
+            list.connections.map(connection => addConnection(connection));
+            list.addEventListener('connectionavailable', function(event) {
+                addConnection(event.connection);
+            });
+        });
+        
+        function addConnection(connection) {
+            connection.addEventListener('message', function(event) {
+                console.log('Message Received: ' + event.data);
+                parseMessage(event.data);
+            });
+            
+            connection.addEventListener('close', function(event) {
+                console.log('Connection closed!', event.reason);
+                connection.send(JSON.stringify({client: true, result: 'closed'}));
+            });
+
+            connection.addEventListener('terminate', function(event) {
+                console.log('Connection treminated!', event.reason);
+                connection.send(JSON.stringify({client: true, result: 'terminated'}));
+            });            
+
+            connection.send(JSON.stringify({client: true, result: 'connected'}));
+        }
+
+        function parseMessage(msg) {
+            console.log('Parsing Message: ');
+            console.log(msg);
+            msg= JSON.parse(msg);
+            if(msg.timer) {
+                gameTime.innerHTML= `${msg.timer.minutes}:${('00' + msg.timer.seconds.toString()).slice(-2)}`;
+            }
+            if(msg.teams) {
+                homeTeamName.innerHTML= `${msg.teams.home.name}`;
+                awayTeamName.innerHTML= `${msg.teams.away.name}`;
+            }
+            if(msg.state) {
+                homeGoals.innerHTML= `${msg.state.score.home.goals}`;
+                homeBehinds.innerHTML= `${msg.state.score.home.behinds}`;
+                homePoints.innerHTML= `${msg.state.score.home.points}`;
+                awayGoals.innerHTML= `${msg.state.score.away.goals}`;
+                awayBehinds.innerHTML= `${msg.state.score.away.behinds}`;
+                awayPoints.innerHTML= `${msg.state.score.away.points}`;
+            }
+            if(msg.progress) {
+                gameProgress.innerHTML= `${msg.progress.text}`;
+            }     
+            if(msg.settings) {
+                //gameGrade.innerHTML= `${msg.settings.grade}`;
+            }                   
+        }
+
+        // ** intialise **
+        document.addEventListener('load', function(event) {
+            //var gameGrade= document.getElementById('gameGrade');
+            var gameTime= document.getElementById('gameTime');
+            var gameProgress= document.getElementById('gameProgress');
+            var homeTeamName= document.getElementById('homeTeamName');
+            var homeGoals= document.getElementById('homeGoals');
+            var homeBehinds= document.getElementById('homeBehinds');
+            var homePoints= document.getElementById('homePoints');
+            var awayTeamName= document.getElementById('awayTeamName');
+            var awayGoals= document.getElementById('awayGoals');
+            var awayBehinds= document.getElementById('awayBehinds');
+            var awayPoints= document.getElementById('awayPoints');
+        });        
+
+
+    </script>
+
+</head> 
+
+<body style="overflow: hidden; background-color: rgba(0, 0, 0, 0.87);">
+
+    <div class="scoreboard" theme-page>
+
+        <div class="_scoreboard-row" theme-title-bg>
+            <div style="display:flex;width:100%;">
+                <div style="flex-grow: 2;">
+                    &nbsp;
+                    <h1 style="display:inline-block;color:white;">
+                        <img src="img/app_logo.png" style="width:38px"> 
+                        <span style="font-size: 16pt;">
+                            Powered by:
+                        </span>  
+                        &nbsp;&nbsp;&nbsp;                      
+                        KeepScore AFL
+                    </h1>
+                </div>
+                <div style="font-size:16pt;" id="gameGrade">&nbsp;</div>
+                <div style="font-size:16pt;text-align:right;line-height: 2.3em;">
+                    http://panazzolo.com/keepscore
+                    &nbsp;&nbsp;&nbsp;  
+                </div>
+            </div>
+            <div class="clock">     
+ 
+                <div class="gameclock" theme-panel>
+                    <div class="gameclock-row">
+                        <div class="gameclock-title" id="gameProgress"></div>
+                        <div>
+                            <span class="gameclock-timer">
+                                Time: <span id="gameTime">0:00</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>	
+        <div class="scoreboard-row">
+            <div class="item">
+                <div class="scorepanel home" theme-panel>
+                    <div class="scorepanel-row title">
+                        <div class="teamname"></div>
+                        <div theme-title-bg>G</div>
+                        <div theme-title-bg>B</div>
+                        <div theme-title-bg>P</div>
+                    </div>	
+                    <div class="scorepanel-row" >
+                        <div class="teamname" id="homeTeamName">
+                            Home Team
+                        </div>
+                        <div class="number" id="homeGoals">0</div>
+                        <div class="number" id="homeBehinds">0</div>
+                        <div class="number" id="homePoints">0</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="item vs">
+                <div style="line-height: 5em;">V</div> 
+            </div>
+
+            <div class="item">
+                <div class="scorepanel away" theme-panel>
+                    <div class="scorepanel-row title">
+                        <div class="teamname"></div>
+                        <div theme-title-bg>G</div>
+                        <div theme-title-bg>B</div>
+                        <div theme-title-bg>P</div>
+                    </div>	
+                    <div class="scorepanel-row" >
+                        <div class="teamname" id="awayTeamName">
+                            Away Team
+                        </div>
+                        <div class="number" id="awayGoals">0</div>
+                        <div class="number" id="awayBehinds">0</div>
+                        <div class="number" id="awayPoints">0</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

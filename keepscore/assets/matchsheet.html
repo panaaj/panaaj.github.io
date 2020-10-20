@@ -1,0 +1,343 @@
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Helvetica, arial;
+            overflow: auto;
+            height: 99%;
+            width: 99%;
+            margin: 0;
+            padding: 5px;            
+        }
+        h1 > img {
+            float:right;
+            width: 60px;
+        }
+        h3 > span {
+            font-weight: normal;
+            font-size: smaller;
+        }
+        h5 {
+            float: right;
+            margin: 0;
+            padding: 0 3px;
+        }
+        table {
+            width:100%;
+            border:black 0px solid;
+        }
+        .item {
+            display: flex;
+            font-size: 10pt;            
+        }
+        .item > .label,
+        .label {
+            flex: 1;
+            font-weight: bold;
+            font-size: 10pt;
+        }           
+        .item > .value {
+            flex-grow: 2;
+            font-size: 14pt;
+            border-bottom: black 1px solid;
+        }
+        .item > .value.multi {
+            border-bottom: black 0px solid;
+        }        
+         .item > .value >.value {
+            width: 100%;
+            border-bottom: black 1px solid;
+         }
+        .aflround td {
+            width: 50%;
+            padding: 5px 20px 5px 20px;
+        }
+        .aflround .item > .label {
+            font-size: 12pt;
+        }
+        .aflround .item > .value,
+        .aflqtrscores  .item > .value{
+            text-align: center;
+        }        
+        .aflbest td:first-child {
+            width: 20%;
+        }
+        .aflplayers td {
+            width: 50%;
+        }        
+        .aflreports  .item > .label {
+            max-width: 10%;
+        }
+    </style>
+    <script src="../js/matchsheet.js"></script>
+</head>
+<body>
+    <h1>Match Result Sheet <img src="img/app_logo.png"/> </h1>
+    <h5>KeepScore<br>panazzolo.com<br>&nbsp;</h5>
+    
+    <table class="aflround">
+        <tr>
+            <td>
+                <div class="item">
+                    <div class="label">Round:</div>
+                    <div class="value"></div>
+                </div>
+            </td>
+            <td>
+                 <div class="item">
+                    <div class="label">Date:</div>
+                    <div class="value" id="gamedate"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="item">
+                    <div class="label">Home team:</div>
+                    <div class="value" id="hometeam"></div>
+                </div>
+            </td>
+            <td>
+                 <div class="item">
+                    <div class="label">Visitors:</div>
+                    <div class="value" id="awayteam"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="item">
+                    <div class="label">Played at:</div>
+                    <div class="value"></div>
+                </div>
+            </td>
+            <td>
+            </td>
+        </tr>        
+    </table>
+   
+    <h3>Quarter by Quarter scores:</h3>
+    <table class="aflqtrscores">
+        <tr>
+            <td style="width:30%;">
+                <div class="item">
+                    <div class="label">Home team:</div>
+                    <div class="value"  id="hometeamqtr"></div>
+                </div>
+            </td>
+            <td>
+                <div class="item">
+                    <div class="">(1st)</div>
+                    <div class="value" id="homeqtr1"></div>
+                </div>
+            </td>
+            <td>
+                <div class="item">
+                    <div class="">(2nd)</div>
+                    <div class="value" id="homeqtr2"></div>
+                </div>
+            </td>
+            <td>
+                <div class="item">
+                    <div class="">(3rd)</div>
+                    <div class="value" id="homeqtr3"></div>
+                </div>
+            </td>
+            <td>
+                <div class="item">
+                    <div class="label">Final:</div>
+                    <div class="value" id="homeqtr4"></div>
+                </div>
+            </td>            
+        </tr>
+       <tr>
+            <td>
+                <div class="item">
+                    <div class="label">Visitors:</div>
+                    <div class="value" id="awayteamqtr"></div>
+                </div>
+            </td>
+            <td>
+                <div class="item">
+                    <div class="">(1st)</div>
+                    <div class="value" id="awayqtr1"></div>
+                </div>
+            </td>
+            <td>
+                <div class="item">
+                    <div class="">(2nd)</div>
+                    <div class="value" id="awayqtr2"></div>
+                </div>
+            </td>
+            <td>
+                <div class="item">
+                    <div class="">(3rd)</div>
+                    <div class="value" id="awayqtr3"></div>
+                </div>
+            </td>
+            <td>
+                <div class="item">
+                    <div class="label">Final:</div>
+                    <div class="value" id="awayqtr4"></div>
+                </div>
+            </td>            
+        </tr>    
+    </table>  
+  
+    <h3>Best players:</h3>
+    <table class="aflplayers">
+        <tr>
+            <td>
+                <div class="item">
+                    <div class="label">Home team:</div>
+                    <div class="value multi">
+                        <div class="value">&nbsp;</div>
+                        <div class="value">&nbsp;</div>
+                        <div class="value">&nbsp;</div>
+                        <div class="value">&nbsp;</div>
+                        <div class="value">&nbsp;</div>
+                        <div class="value">&nbsp;</div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="item">
+                    <div class="label">Visiting team:</div>
+                    <div class="value multi">
+                        <div class="value">&nbsp;</div>
+                        <div class="value">&nbsp;</div>
+                        <div class="value">&nbsp;</div>
+                        <div class="value">&nbsp;</div>
+                        <div class="value">&nbsp;</div>
+                        <div class="value">&nbsp;</div>
+                    </div>
+                </div>
+            </td>   
+        </tr>
+    </table>  
+ 
+    <h3>Goal Scorers:</h3>
+    <table class="aflplayers">
+        <tr>
+            <td>
+                <div class="item">
+                    <div class="label">Home team:</div>
+                    <div class="value multi">
+                        <div class="value" id="homescorer0">&nbsp;</div>
+                        <div class="value" id="homescorer1">&nbsp;</div>
+                        <div class="value" id="homescorer2">&nbsp;</div>
+                        <div class="value" id="homescorer3">&nbsp;</div>
+                        <div class="value" id="homescorer4">&nbsp;</div>
+                        <div class="value" id="homescorer5">&nbsp;</div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="item">
+                    <div class="label">Visitors:</div>
+                    <div class="value multi">
+                        <div class="value" id="awayscorer0">&nbsp;</div>
+                        <div class="value" id="awayscorer1">&nbsp;</div>
+                        <div class="value" id="awayscorer2">&nbsp;</div>
+                        <div class="value" id="awayscorer3">&nbsp;</div>
+                        <div class="value" id="awayscorer4">&nbsp;</div>
+                        <div class="value" id="awayscorer5">&nbsp;</div>
+                    </div>
+                </div>
+            </td>   
+        </tr>
+    </table>  
+ 
+    <h3>Best team player award: <span>home team</span></h3>
+    <table class="aflbest">
+        <tr>
+            <td>
+                <div class="label">3 votes:</div>
+            </td>
+            <td>
+                <div class="item">
+                    <div class="">(Player)</div>
+                    <div class="value"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="label">2 votes:</div>
+            </td>
+            <td>
+                <div class="item">
+                    <div class="">(Player)</div>
+                    <div class="value"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="label">1 vote:</div>
+            </td>
+            <td>
+                <div class="item">
+                    <div class="">(Player)</div>
+                    <div class="value"></div>
+                </div>
+            </td>
+        </tr>        
+    </table>    
+ 
+     <h3>Best team player award: <span>visiting team</span></h3>
+    <table class="aflbest">
+        <tr>
+            <td>
+                <div class="label">3 votes:</div>
+            </td>
+            <td>
+                <div class="item">
+                    <div class="">(Player)</div>
+                    <div class="value"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="label">2 votes:</div>
+            </td>
+            <td>
+                <div class="item">
+                    <div class="">(Player)</div>
+                    <div class="value"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="label">1 vote:</div>
+            </td>
+            <td>
+                <div class="item">
+                    <div class="">(Player)</div>
+                    <div class="value"></div>
+                </div>
+            </td>
+        </tr>        
+    </table>    
+  
+    <br>
+    <table class="aflreports">
+        <tr>
+            <td>
+                <div class="item">
+                    <div class="label">Reports:</div>
+                    <div class="value multi">
+                        <div class="value">&nbsp;</div>
+                        <div class="value">&nbsp;</div>
+                        <div class="value">&nbsp;</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table> 
+    
+</body>
+</html>
